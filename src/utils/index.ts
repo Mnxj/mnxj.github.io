@@ -19,7 +19,7 @@ export const useMount = (callback: () => void) => {
     callback();
   }, []);
 };
-export const useDebounce = (value: unknown, delay?: number): any => {
+export const useDebounce = <V>(value: V, delay?: number): any => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
