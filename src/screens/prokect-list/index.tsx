@@ -15,7 +15,7 @@ export const ProjectListScreen = () => {
   const debounce = useDebounce(param, 200);
   const { isLoading, error, data: list } = useProject(debounce);
   const { data: users } = useUsers();
-  useDocumentTitle("项目列表");
+  useDocumentTitle("项目列表", false);
   return (
     <Container>
       <h1>项目列表</h1>
