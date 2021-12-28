@@ -32,3 +32,9 @@ export const useDebounce = <V>(value: V, delay?: number): any => {
 
   return debouncedValue;
 };
+
+export const useDocumentTitle = (title: string) => {
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+};
