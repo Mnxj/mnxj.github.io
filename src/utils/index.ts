@@ -22,9 +22,9 @@ export const useMount = (callback: () => void) => {
 };
 export const useDebounce = <V>(value: V, delay?: number): any => {
   const [debouncedValue, setDebouncedValue] = useState(value);
-
+  //每次value变化以后，
   useEffect(() => {
-    //每次value变化以后，设置一个定时器
+    //设置一个定时器
     const timeout = setTimeout(() => setDebouncedValue(value), delay);
     //清理上一个useEffect处理完以后在运行
     return () => clearTimeout(timeout);
@@ -50,3 +50,5 @@ export const useDocumentTitle = (title: string, keepOnUnmount = true) => {
     };
   }, [keepOnUnmount, oldTitle]);
 };
+
+export const resetRoute = () => (window.location.href = window.location.origin);
