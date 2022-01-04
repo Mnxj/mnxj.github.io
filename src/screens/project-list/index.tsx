@@ -11,26 +11,27 @@ export const ProjectListScreen = () => {
   useDocumentTitle("项目列表", false);
 
   const [param, setParam] = useProjectSearchParams();
-  const { isLoading, error, data: list } = useProject(useDebounce(param, 200));
+  const {
+    isLoading,
+    error,
+    data: list,
+    retry,
+  } = useProject(useDebounce(param, 200));
   const { data: users } = useUsers();
 
   return (
     <Container>
       <h1>项目列表</h1>
-      <select
-        onChange={(evt) => {
-          const value = evt.target.value;
-          console.log(value, typeof value);
-        }}
-      >
-        <option value={undefined}>默认属性</option>
-        <option value={1}>第一个选项</option>
-      </select>
       <SearchPanel users={users || []} param={param} setParam={setParam} />
       {error ? (
         <Typography.Text type={"danger"}>{error.message}</Typography.Text>
       ) : null}
-      <List loading={isLoading} users={users || []} dataSource={list || []} />
+      <List
+        refresh={retry}
+        loading={isLoading}
+        users={users || []}
+        dataSource={list || []}
+      />
     </Container>
   );
 };
