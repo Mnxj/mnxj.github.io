@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import React from "react";
 import { Form, Input } from "antd";
 import { Project } from "./list";
@@ -19,9 +18,9 @@ interface SearchPanelProps {
   setParam: (param: SearchPanelProps["param"]) => void;
 }
 
-export const SearchPanel = ({ users, param, setParam }: SearchPanelProps) => {
+export const SearchPanel = ({ param, setParam }: SearchPanelProps) => {
   return (
-    <Form css={{ marginBottom: "2rem" }} layout={"inline"}>
+    <Form style={{ marginBottom: "2rem" }} layout={"inline"}>
       <Form.Item>
         {/*setParam(Object.assign({},param,{name: event.target.value}))*/}
         <Input
@@ -51,3 +50,4 @@ export const SearchPanel = ({ users, param, setParam }: SearchPanelProps) => {
     </Form>
   );
 };
+SearchPanel.whyDidYouRender = false;

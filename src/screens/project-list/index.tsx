@@ -6,9 +6,12 @@ import { Typography } from "antd";
 import { useProject } from "../../utils/project";
 import { useUsers } from "../../utils/user";
 import { useProjectSearchParams } from "./util";
-import { Row } from "../../components/lib";
+import { ButtonNoPadding, Row } from "../../components/lib";
+import { useDispatch } from "react-redux";
+import { projectListActions } from "./project-list.slice";
 
-export const ProjectListScreen = (props: { projectButton: JSX.Element }) => {
+export const ProjectListScreen = () => {
+  const dispatch = useDispatch();
   useDocumentTitle("项目列表", false);
   const [param, setParam] = useProjectSearchParams();
   const {
@@ -23,14 +26,18 @@ export const ProjectListScreen = (props: { projectButton: JSX.Element }) => {
     <Container>
       <Row between={true}>
         <h1>项目列表</h1>
-        {props.projectButton}
+        <ButtonNoPadding
+          type={"link"}
+          onClick={() => dispatch(projectListActions.openProjectModal())}
+        >
+          创建项目
+        </ButtonNoPadding>
       </Row>
       <SearchPanel users={users || []} param={param} setParam={setParam} />
       {error ? (
         <Typography.Text type={"danger"}>{error.message}</Typography.Text>
       ) : null}
       <List
-        projectButton={props.projectButton}
         refresh={retry}
         loading={isLoading}
         users={users || []}
@@ -39,7 +46,7 @@ export const ProjectListScreen = (props: { projectButton: JSX.Element }) => {
     </Container>
   );
 };
-ProjectListScreen.whyDidYouRender = false;
+
 const Container = styled.div`
   padding: 3.2rem;
 `;
