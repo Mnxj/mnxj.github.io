@@ -14,9 +14,9 @@ import { ProjectPopover } from "./components/project-popover";
 export const AuthenticatedApp = () => {
   return (
     <Container>
-      <PageHeader />
-      <Main>
-        <Router>
+      <Router>
+        <PageHeader />
+        <Main>
           <Routes>
             <Route path={"/projects"} element={<ProjectListScreen />} />
             <Route
@@ -28,9 +28,9 @@ export const AuthenticatedApp = () => {
               element={<Navigate to={"projects"} replace={true} />}
             />
           </Routes>
-        </Router>
+        </Main>
         <ProjectModel />
-      </Main>
+      </Router>
     </Container>
   );
 };
