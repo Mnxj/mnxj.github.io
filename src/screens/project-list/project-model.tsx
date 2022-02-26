@@ -5,6 +5,7 @@ import { useAddProject, useEditProject } from "../../utils/project";
 import { useForm } from "antd/es/form/Form";
 import { useEffect } from "react";
 import { ErrorBox } from "../../components/lib";
+import styled from "@emotion/styled";
 
 export const ProjectModel = () => {
   const { projectModalOpen, close, editingProject, isLoading } =
@@ -23,6 +24,11 @@ export const ProjectModel = () => {
     });
   };
 
+  const closeModal = () => {
+    form.resetFields();
+    close();
+  };
+
   const title = editingProject ? "编辑项目" : "创建项目";
 
   useEffect(() => {
@@ -32,14 +38,14 @@ export const ProjectModel = () => {
   return (
     <Drawer
       forceRender={true}
-      onClose={close}
+      onClose={closeModal}
       visible={projectModalOpen}
       width={"100%"}
     >
       {isLoading ? (
         <Spin size={"large"} />
       ) : (
-        <>
+        <Container>
           <h1>{title}</h1>
           <ErrorBox error={error} />
           <Form
@@ -75,8 +81,16 @@ export const ProjectModel = () => {
               </Button>
             </Form.Item>
           </Form>
-        </>
+        </Container>
       )}
     </Drawer>
   );
 };
+
+const Container = styled.div`
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
