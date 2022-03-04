@@ -6,6 +6,7 @@ import {
   useEditConfig,
 } from "./use-optimistic-options";
 import { Project } from "../type/project";
+import { Task } from "../type/task";
 
 export const useProjects = (param?: Partial<Project>) => {
   const client = useHttp();
@@ -61,5 +62,18 @@ export const useProject = (id?: number) => {
     {
       enabled: Boolean(id),
     }
+  );
+};
+
+export const useEditTask = (queryKey: QueryKey) => {
+  const client = useHttp();
+
+  return useMutation(
+    (params: Partial<Task>) =>
+      client(`tasks/${params.id}`, {
+        method: "PATCH",
+        data: params,
+      }),
+    useEditConfig(queryKey)
   );
 };
