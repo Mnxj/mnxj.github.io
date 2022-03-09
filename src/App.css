@@ -1,8 +1,0 @@
-html {
-  /*rem相对父元素font-size em* 相对父元素的font-size */
-  font-size: 62.5%;
-}
-
-html body #root .App {
-  min-height: 100vh;
-}

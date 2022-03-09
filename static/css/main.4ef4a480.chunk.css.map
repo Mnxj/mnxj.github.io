@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,KAEE,eACF,CAEA,qBACE,gBACF","file":"main.4ef4a480.chunk.css","sourcesContent":["html {\n  /*rem相对父元素font-size em* 相对父元素的font-size */\n  font-size: 62.5%;\n}\n\nhtml body #root .App {\n  min-height: 100vh;\n}\n"]}
