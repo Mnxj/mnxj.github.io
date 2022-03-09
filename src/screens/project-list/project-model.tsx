@@ -42,47 +42,49 @@ export const ProjectModel = () => {
       visible={projectModalOpen}
       width={"100%"}
     >
-      {isLoading ? (
-        <Spin size={"large"} />
-      ) : (
-        <Container>
-          <h1>{title}</h1>
-          <ErrorBox error={error} />
-          <Form
-            form={form}
-            layout={"vertical"}
-            style={{ width: "40rem" }}
-            onFinish={onFinish}
-          >
-            <Form.Item
-              label={"名称"}
-              name={"name"}
-              rules={[{ required: true, message: "请输入项目名称" }]}
+      <Container>
+        {isLoading ? (
+          <Spin size={"large"} />
+        ) : (
+          <>
+            <h1>{title}</h1>
+            <ErrorBox error={error} />
+            <Form
+              form={form}
+              layout={"vertical"}
+              style={{ width: "40rem" }}
+              onFinish={onFinish}
             >
-              <Input placeholder={"请输入项目名称"} />
-            </Form.Item>
-            <Form.Item
-              label={"部门"}
-              name={"organization"}
-              rules={[{ required: true, message: "请输入部门名" }]}
-            >
-              <Input placeholder={"请输入部门名"} />
-            </Form.Item>
-            <Form.Item label={"负责人"} name={"personId"}>
-              <UserSelect defaultOptionName={"负责人"} />
-            </Form.Item>
-            <Form.Item>
-              <Button
-                loading={mutateLoading}
-                type={"primary"}
-                htmlType={"submit"}
+              <Form.Item
+                label={"名称"}
+                name={"name"}
+                rules={[{ required: true, message: "请输入项目名称" }]}
               >
-                提交
-              </Button>
-            </Form.Item>
-          </Form>
-        </Container>
-      )}
+                <Input placeholder={"请输入项目名称"} />
+              </Form.Item>
+              <Form.Item
+                label={"部门"}
+                name={"organization"}
+                rules={[{ required: true, message: "请输入部门名" }]}
+              >
+                <Input placeholder={"请输入部门名"} />
+              </Form.Item>
+              <Form.Item label={"负责人"} name={"personId"}>
+                <UserSelect defaultOptionName={"负责人"} />
+              </Form.Item>
+              <Form.Item>
+                <Button
+                  loading={mutateLoading}
+                  type={"primary"}
+                  htmlType={"submit"}
+                >
+                  提交
+                </Button>
+              </Form.Item>
+            </Form>
+          </>
+        )}
+      </Container>
     </Drawer>
   );
 };
