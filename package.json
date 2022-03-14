@@ -1,0 +1,86 @@
+{
+  "name": "jira",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "^6.4.3",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@reduxjs/toolkit": "^1.7.1",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^12.20.37",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@welldone-software/why-did-you-render": "^6.2.3",
+    "antd": "^4.17.4",
+    "craco-less": "^1.20.0",
+    "dayjs": "^1.10.7",
+    "eslint-config-react-app": "^6.0.0",
+    "history": "^5.2.0",
+    "jira-dev-tool": "^1.6.59",
+    "qs": "^6.10.2",
+    "react": "^17.0.2",
+    "react-beautiful-dnd": "^13.1.0",
+    "react-dom": "^17.0.2",
+    "react-query": "^3.34.7",
+    "react-redux": "^7.2.6",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.5.2",
+    "web-vitals": "^1.1.2",
+    "yarn": "^1.22.17"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -r git@github.com:Mnxj/jira_demo.github.io.git -b main"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "prettier"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^5.1.1",
+    "@types/qs": "^6.9.7",
+    "@types/react-beautiful-dnd": "^13.1.2",
+    "@types/react-helmet": "^6.1.5",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "json-server": "^0.17.0",
+    "lint-staged": "^12.1.2",
+    "prettier": "2.5.1",
+    "prettier-eslint": "^13.0.0"
+  },
+  "lint-staged": {
+    "*.{js,css,md,ts,tsx}": "prettier --write"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/src/__test__/*.{js,jsx,ts,tsx}"
+    ]
+  }
+}
