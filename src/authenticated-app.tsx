@@ -12,7 +12,7 @@ import { ProjectModel } from "./screens/project-list/project-model";
 import { ProjectPopover } from "./components/project-popover";
 import { UserPopover } from "./components/user-popover";
 
-export const AuthenticatedApp = () => {
+export default () => {
   return (
     <Container>
       <Router>

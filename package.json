@@ -39,7 +39,9 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -r git@github.com:Mnxj/jira_demo.github.io.git -b main"
   },
   "eslintConfig": {
     "extends": [
@@ -61,6 +63,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^5.1.1",
     "@types/qs": "^6.9.7",
     "@types/react-beautiful-dnd": "^13.1.2",
     "@types/react-helmet": "^6.1.5",
