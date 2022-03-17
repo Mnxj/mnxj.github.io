@@ -41,7 +41,7 @@
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r git@github.com:Mnxj/jira_demo.github.io.git -b main"
+    "deploy": "gh-pages -d build -r git@github.com:Mnxj/jira_demo.github.io.git -b prod"
   },
   "eslintConfig": {
     "extends": [
@@ -69,6 +69,7 @@
     "@types/react-helmet": "^6.1.5",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "gh-pages": "^3.2.3",
     "husky": "^7.0.4",
     "json-server": "^0.17.0",
     "lint-staged": "^12.1.2",
